@@ -20,7 +20,7 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 
 ## Windows
 - Remap <kbd>caps lock</kbd>&rightarrow;<kbd>esc</kbd> & <kbd>esc</kbd>&rightarrow;<kbd>caps lock</kbd>  
-  1. Install [Windwos Server 2003 Resource Kit](https://www.microsoft.com/en-us/download/details.aspx?id=17657) 
+  1. Install [Windows Server 2003 Resource Kit](https://www.microsoft.com/en-us/download/details.aspx?id=17657) 
   2. Navigate to *C:\Program Files (x86)\Windows Resource Kits\Tools*
   3. Run as Administrator *remapkey.exe*
   4. Change keys as shown below:

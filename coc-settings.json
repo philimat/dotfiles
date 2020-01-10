@@ -1,0 +1,10 @@
+{
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "suggest.noselect": true,
+  "python.jediEnabled": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "python"
+  ]
+}

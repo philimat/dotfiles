@@ -14,6 +14,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
+" Plug 'cjrh/vim-conda'
 call plug#end()
 
 "turn relative row numbers on
@@ -44,6 +45,9 @@ set expandtab
 set bg=dark
 let g:gruvbox_contrast_dark='hard' 
 colorscheme gruvbox
+
+" conda-vim settings
+" let g:conda_startup_msg_suppress = 1
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active

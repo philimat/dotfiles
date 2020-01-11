@@ -22,7 +22,7 @@ set rnu
 " colored syntax
 syntax on
 " better yank to clipboard
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -32,9 +32,24 @@ if !exists('g:airline_symbols')
 
 filetype plugin on
 nmap <C-n> :NERDTreeToggle<CR>
-"Map Ctrl + / to toggle comments
-vmap <C-_> <plug>NERDCommenterToggle
-nmap <C-_> <plug>NERDCommenterToggle
+" OS specific settings
+" Map Ctrl + / for Windows and Linux and Cmd + / for macOS to toggle comments
+" iTerm2 or another terminal that can remap the Cmd + / to ++ must be used it to work on macOS
+if system('uname -s') == "Darwin\n"
+  "OSX
+  nmap ++ <plug>NERDCommenterToggle
+  vmap ++ <plug>NERDCommenterToggle
+elseif has('unix')
+  "Linux
+  nmap <C-_> <plug>NERDCommenterToggle
+  vmap <C-_> <plug>NERDCommenterToggle
+elseif has('win32')
+	"Windows
+  nmap <C-/> <plug>NERDCommenterToggle
+  vmap <C-/> <plug>NERDCommenterToggle
+else
+	echo "Vim could not detect the current operating system. Some settings could not be loaded"
+endif
 
 set tabstop=2
 set shiftwidth=2

@@ -14,52 +14,129 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
-" Plug 'cjrh/vim-conda'
+Plug 'vim-python/python-syntax'
+"Plug 'cjrh/vim-conda'
 call plug#end()
+
+" map leader
+let mapleader = ','
+
+" Quicksave command
+noremap <leader>w :update<CR>
+vnoremap <leader>w <C-C>:update<CR>
+inoremap <leader>w <C-O>:update<CR>++
+
+" Quick quit command
+noremap <leader>e :q<CR>  " Exit current window
+noremap <leader>fe :q!<CR>  " Force exit current window
+noremap <leader>E :qa!<CR>   " Exit all windows
+
+" Quick open new tab
+nmap <Leader>t :tabnew<CR>
+" easier moving between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" Show whitespace
+" MUST be inserted BEFORE the colorscheme command
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
 
 "turn relative row numbers on
 set rnu
 " colored syntax
 syntax on
+
+" Showing line numbers and length
+set number  " show line numbers
+set tw=79   " width of document (used by gd)
+set nowrap  " don't automatically wrap on load
+set fo-=t   " don't automatically wrap text when typing
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
 " better yank to clipboard
 set clipboard^=unnamed,unnamedplus
+set pastetoggle=<leader>p
+set showmode
+" set tabs to have 4 spaces
+set tabstop=4
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
 
-" airline
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
+" always uses spaces instead of tab characters
+set expandtab
 
+" indent when moving to the next line while writing code
+set autoindent
+
+" show a visual line under the cursor's current line
+set cursorline
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+" colorscheme settings
+set t_Co=256
+set bg=dark
+let g:gruvbox_contrast_dark='medium'
+colorscheme gruvbox
+
+set nocompatible
 filetype plugin on
+
+set foldmethod=syntax
+
 nmap <C-n> :NERDTreeToggle<CR>
+"autocmd VimEnter * NERDTree | :NERDTreeToggle<CR>
+autocmd VimEnter *.py NERDTree
+
 " OS specific settings
 " Map Ctrl + / for Windows and Linux and Cmd + / for macOS to toggle comments
 " iTerm2 or another terminal that can remap the Cmd + / to ++ must be used it to work on macOS
+let echoOS = 0
 if system('uname -s') == "Darwin\n"
   "OSX
+  if echoOS
+    echo "MacOS Detected"
+  endif
   nmap ++ <plug>NERDCommenterToggle
   vmap ++ <plug>NERDCommenterToggle
 elseif has('unix')
   "Linux
+  if echoOS
+    echo "Unix Detected"
+  endif
   nmap <C-_> <plug>NERDCommenterToggle
   vmap <C-_> <plug>NERDCommenterToggle
 elseif has('win32')
 	"Windows
+  if echoOS 
+    echo "Windows Detected"
+  endif
   nmap <C-/> <plug>NERDCommenterToggle
   vmap <C-/> <plug>NERDCommenterToggle
 else
 	echo "Vim could not detect the current operating system. Some settings could not be loaded"
 endif
 
-set tabstop=2
-set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
-
-" colorscheme settings
-set bg=dark
-let g:gruvbox_contrast_dark='hard' 
-colorscheme gruvbox
+" airline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+endif
 
 " conda-vim settings
 " let g:conda_startup_msg_suppress = 1
@@ -78,7 +155,6 @@ function! SyncTree()
     wincmd p
   endif
 endfunction
-
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
 
@@ -99,7 +175,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-yaml',  
+  \ 'coc-yaml',
   \ 'coc-xml',
   \ 'coc-sql',
   \ ]
@@ -157,7 +233,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -224,4 +299,5 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " sources
+" https://github.com/mbrochh/vim-as-a-python-ide/blob/master/.vimrc
 " https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f

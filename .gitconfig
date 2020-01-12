@@ -1,0 +1,10 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+[user]
+	name = Matt Philippi
+	email = philippi.matthew@gmail.com
+[commit]
+	template = ~/.stCommitMsg
+[color]
+	ui = auto

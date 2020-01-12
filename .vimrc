@@ -1,5 +1,4 @@
-set encoding=UTF-8
-
+set encoding=UTF-8 
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
@@ -23,9 +22,9 @@ call plug#end()
 let mapleader = ','
 
 " Quicksave command
-noremap <leader>w :update<CR>
-vnoremap <leader>w <C-C>:update<CR>
-inoremap <leader>w <C-O>:update<CR>++
+noremap <leader>w :w<CR>
+vnoremap <leader>w <C-C>:w<CR>
+inoremap <leader>w <C-O>:w<CR>++
 
 " Quick quit command
 noremap <leader>e :q<CR>  " Exit current window
@@ -100,8 +99,8 @@ colorscheme gruvbox
 
 set nocompatible
 filetype plugin on
-
-"set foldmethod=syntax
+set nofoldenable    " disable folding on file open
+au FileType html setlocal foldmethod=indent
 
 nmap <C-n> :NERDTreeToggle<CR>
 "autocmd VimEnter * NERDTree | :NERDTreeToggle<CR>
@@ -272,8 +271,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
+"nmap <silent> <C-d> <Plug>(coc-range-select)
+"xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')

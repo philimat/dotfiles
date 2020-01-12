@@ -115,6 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# use vim keybindings in terminal
-set -o vi

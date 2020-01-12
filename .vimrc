@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'vim-python/python-syntax'
+Plug 'tmhedberg/SimpylFold'
 "Plug 'cjrh/vim-conda'
 call plug#end()
 
@@ -88,6 +89,9 @@ set showmatch
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+" quick set up a python breakpoint
+map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
+
 " colorscheme settings
 set t_Co=256
 set bg=dark
@@ -97,7 +101,7 @@ colorscheme gruvbox
 set nocompatible
 filetype plugin on
 
-set foldmethod=syntax
+"set foldmethod=syntax
 
 nmap <C-n> :NERDTreeToggle<CR>
 "autocmd VimEnter * NERDTree | :NERDTreeToggle<CR>

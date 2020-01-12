@@ -7,9 +7,9 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Start tmux by default
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    #tmux attach -t default || tmux new -s default
+#fi
 
 # MacPorts Installer addition on 2019-04-04_at_06:52:05: adding an appropriate PATH variable for use with MacPorts.
  export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
@@ -17,16 +17,16 @@ fi
 # added by Anaconda3 2019.03 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '~/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
-    if [ -f "~/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "~/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/anaconda3/etc/profile.d/conda.sh"
         CONDA_CHANGEPS1=false conda activate base
     else
-        export PATH="~/anaconda3/bin:$PATH"
-        source ~/anaconda3/bin/activate
+        export PATH="/anaconda3/bin:$PATH"
+        source /anaconda3/bin/activate
     fi
 fi
 unset __conda_setup

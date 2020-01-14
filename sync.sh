@@ -1,1 +1,1 @@
-rsync ~/{.gitconfig,.vimrc,.inputrc,.bash_profile,.tmux.conf} ./
+rsync ~/{.gitconfig,.vimrc,.inputrc,.bashrc,.tmux.conf} ./

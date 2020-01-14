@@ -47,7 +47,7 @@ Plug 'Konfekt/FastFold'
 Plug 'junegunn/limelight.vim'
 
 " Gruvbox theme
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " Better python folding
 Plug 'tmhedberg/SimpylFold'
@@ -73,24 +73,24 @@ call plug#end()
 " -----------------------------------------------------------------------------
 " Color settings
 " -----------------------------------------------------------------------------
-
+set t_Co=256
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
+" Gruvbox comes with both a dark and light theme.
+set background=dark
+" Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='hard'
+
 colorscheme gruvbox
 " For Gruvbox to look correct in terminal Vim you'll want to source a palette
 " script that comes with the Gruvbox plugin.
-"
+
 " Add this to your ~/.profile file:
 "   source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-
-" Gruvbox comes with both a dark and light theme.
-set background=dark
-
-" Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
-let g:gruvbox_contrast_light='hard'
 
 " This needs to come last, otherwise the colors aren't correct.
 syntax on
@@ -117,9 +117,8 @@ endif
 " Basic Settings
 "   Research any of these by running :help <setting>
 " -----------------------------------------------------------------------------
-
-let mapleader = ','
 set encoding=UTF-8
+let mapleader = ','
 
 "turn relative row numbers on
 set rnu
@@ -209,35 +208,6 @@ map <F5> :setlocal spell!<CR>
 
 " quick set up a python breakpoint
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
-
-" OS specific settings
-" Map Ctrl + / for Windows and Linux and Cmd + / for macOS to toggle comments
-" iTerm2 or another terminal that can remap the Cmd + / to ++ must be used it to work on macOS
-let echoOS = 0
-if system('uname -s') == "Darwin\n"
-  "OSX
-  if echoOS
-    echo "MacOS Detected"
-  endif
-  nmap ++ <plug>NERDCommenterToggle
-  vmap ++ <plug>NERDCommenterToggle
-elseif has('unix')
-  "Linux
-  if echoOS
-    echo "Unix Detected"
-  endif
-  nmap <C-_> <plug>NERDCommenterToggle
-  vmap <C-_> <plug>NERDCommenterToggle
-elseif has('win32')
-	"Windows
-  if echoOS
-    echo "Windows Detected"
-  endif
-  nmap <C-_> <plug>NERDCommenterToggle
-  vmap <C-_> <plug>NERDCommenterToggle
-else
-	echo "Vim could not detect the current operating system. Some settings could not be loaded"
-endif
 
 au FileType html setlocal foldmethod=indent
 
@@ -427,12 +397,43 @@ let g:limelight_conceal_ctermfg=244
 
 " specify browser to open preview page
 " default: ''
-let g:mkdp_browser = 'safari'
+
 let g:mkdp_auto_close=0
 let g:mkdp_refresh_slow=1
 " npm install github-markdown-css
-let g:mkdp_markdown_css='/Users/mattphilippi/node_modules/github-markdown-css/github-markdown.css'
+let g:mkdp_markdown_css='/home/philimat/node_modules/github-markdown-css/github-markdown.css'
 
+" OS specific settings
+" Map Ctrl + / for Windows and Linux and Cmd + / for macOS to toggle comments
+" iTerm2 or another terminal that can remap the Cmd + / to ++ must be used it to work on macOS
+let echoOS = 0
+if system('uname -s') == "Darwin\n"
+  "OSX
+  if echoOS
+    echo "MacOS Detected"
+  endif
+  let g:mkdp_browser='safari'
+  nmap ++ <plug>NERDCommenterToggle
+  vmap ++ <plug>NERDCommenterToggle
+elseif has('unix')
+  "Linux
+  if echoOS
+    echo "Unix Detected"
+  endif
+  let g:mkdp_browser='chrome'
+  nmap <C-_> <plug>NERDCommenterToggle
+  vmap <C-_> <plug>NERDCommenterToggle
+elseif has('win32')
+	"Windows
+  if echoOS
+    echo "Windows Detected"
+  endif
+  let g:mkdp_browser='chrome'
+  nmap <C-_> <plug>NERDCommenterToggle
+  vmap <C-_> <plug>NERDCommenterToggle
+else
+	echo "Vim could not detect the current operating system. Some settings could not be loaded"
+endif
 " .............................................................................
 " sources that I stole/got inspried by for this .vimrc
 " .............................................................................

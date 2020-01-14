@@ -1,25 +1,124 @@
-set encoding=UTF-8 
+" -----------------------------------------------------------------------------
+" This config is targeted for Vim 8.0+ and expects you to have Plug installed.
+" -----------------------------------------------------------------------------
+
+" -----------------------------------------------------------------------------
+" Plugins
+" -----------------------------------------------------------------------------
+
 call plug#begin()
+
+" Conquer of Completion plugin for intellisense features
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Airline status bar and themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
+
+" Fuzzy file finding
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Navigate and manipulate files in a tree view.
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Cool icons for NERDTree
 Plug 'ryanoasis/vim-devicons'
+
+" show git file status in NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" A git wrapper.
+Plug 'tpope/vim-fugitive'
+
+" Show git file changes in the gutter.
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+
+" Quick commenting
 Plug 'scrooloose/nerdcommenter'
+
+" Keyboard shortcuts to switch between vim and tmux windows
 Plug 'christoomey/vim-tmux-navigator'
+
+" Drastically improve insert mode performance in files with folds.
+Plug 'Konfekt/FastFold'
+
+" Dim paragraphs above and below the active paragraph.
+Plug 'junegunn/limelight.vim'
+
+" Gruvbox theme
 Plug 'morhetz/gruvbox'
-Plug 'vim-python/python-syntax'
+
+" Better python folding
 Plug 'tmhedberg/SimpylFold'
+
+" Plugin for better Conda integration
 "Plug 'cjrh/vim-conda'
+
+" Languages and file types.
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'chrisbra/csv.vim'
+Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'lifepillar/pgsql.vim'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'stephpy/vim-yaml'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tpope/vim-git'
+Plug 'vim-python/python-syntax'
+
 call plug#end()
 
-" map leader
+" -----------------------------------------------------------------------------
+" Color settings
+" -----------------------------------------------------------------------------
+
+" Show whitespace
+" MUST be inserted BEFORE the colorscheme command
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
+colorscheme gruvbox
+" For Gruvbox to look correct in terminal Vim you'll want to source a palette
+" script that comes with the Gruvbox plugin.
+"
+" Add this to your ~/.profile file:
+"   source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+
+" Gruvbox comes with both a dark and light theme.
+set background=dark
+
+" Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
+let g:gruvbox_contrast_light='hard'
+
+" This needs to come last, otherwise the colors aren't correct.
+syntax on
+
+" Fix the ultra disgusting visual selection colors of gruvbox (thanks @romainl).
+if (&background == 'dark')
+  hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#3a3a3a
+else
+  hi Visual cterm=NONE ctermfg=NONE ctermbg=223 guibg=#ffd7af
+endif
+
+" -----------------------------------------------------------------------------
+" Status line
+" -----------------------------------------------------------------------------
+
+" airline
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+endif
+
+" -----------------------------------------------------------------------------
+" Basic Settings
+"   Research any of these by running :help <setting>
+" -----------------------------------------------------------------------------
+
 let mapleader = ','
+set encoding=UTF-8
 
 " Quicksave command
 noremap <leader>w :w<CR>
@@ -46,15 +145,8 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
-" Show whitespace
-" MUST be inserted BEFORE the colorscheme command
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhitespace /\s\+$/
-
 "turn relative row numbers on
 set rnu
-" colored syntax
-syntax on
 
 " Showing line numbers and length
 set number  " show line numbers
@@ -91,20 +183,10 @@ let python_highlight_all = 1
 " quick set up a python breakpoint
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
 
-" colorscheme settings
-set t_Co=256
-set bg=dark
-let g:gruvbox_contrast_dark='medium'
-colorscheme gruvbox
-
 set nocompatible
 filetype plugin on
 set nofoldenable    " disable folding on file open
 au FileType html setlocal foldmethod=indent
-
-nmap <C-n> :NERDTreeToggle<CR>
-"autocmd VimEnter * NERDTree | :NERDTreeToggle<CR>
-autocmd VimEnter *.py NERDTree
 
 " OS specific settings
 " Map Ctrl + / for Windows and Linux and Cmd + / for macOS to toggle comments
@@ -126,7 +208,7 @@ elseif has('unix')
   vmap <C-_> <plug>NERDCommenterToggle
 elseif has('win32')
 	"Windows
-  if echoOS 
+  if echoOS
     echo "Windows Detected"
   endif
   nmap <C-/> <plug>NERDCommenterToggle
@@ -135,31 +217,8 @@ else
 	echo "Vim could not detect the current operating system. Some settings could not be loaded"
 endif
 
-" airline
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-endif
-
 " conda-vim settings
 " let g:conda_startup_msg_suppress = 1
-
-" sync open file with NERDTree
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
 
 " coc config
 let g:coc_global_extensions = [
@@ -301,6 +360,58 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" sources
+" -----------------------------------------------------------------------------
+" Plugin settings, mappings and autocommands
+" -----------------------------------------------------------------------------
+
+" .............................................................................
+" scrooloose/nerdtree
+" .............................................................................
+
+" sync open file with NERDTree
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
+
+nmap <C-n> :NERDTreeToggle<CR>
+autocmd VimEnter *.py NERDTree
+
+let g:NERDTreeShowHidden=1
+let g:NERDTreeAutoDeleteBuffer=1
+
+" .............................................................................
+" junegunn/limelight.vim
+" .............................................................................
+
+let g:limelight_conceal_ctermfg=244
+
+" .............................................................................
+" iamcco/markdown-preview.nvim
+" .............................................................................
+
+" specify browser to open preview page
+" default: ''
+let g:mkdp_browser = 'safari'
+let g:mkdp_auto_close=0
+let g:mkdp_refresh_slow=1
+" npm install github-markdown-css
+let g:mkdp_markdown_css='/Users/mattphilippi/node_modules/github-markdown-css/github-markdown.css'
+
+" .............................................................................
+" sources that I stole/got inspried by for this .vimrc
+" .............................................................................
+" https://github.com/nickjj/dotfiles/blob/master/.vimrc
 " https://github.com/mbrochh/vim-as-a-python-ide/blob/master/.vimrc
 " https://gist.github.com/benawad/b768f5a5bbd92c8baabd363b7e79786f

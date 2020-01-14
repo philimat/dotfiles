@@ -112,6 +112,7 @@ if !exists('g:airline_symbols')
       let g:airline_symbols = {}
 endif
 
+
 " -----------------------------------------------------------------------------
 " Basic Settings
 "   Research any of these by running :help <setting>
@@ -119,31 +120,6 @@ endif
 
 let mapleader = ','
 set encoding=UTF-8
-
-" Quicksave command
-noremap <leader>w :w<CR>
-vnoremap <leader>w <C-C>:w<CR>
-inoremap <leader>w <C-O>:w<CR>++
-
-" Quick quit command
-noremap <leader>e :q<CR>  " Exit current window
-noremap <leader>fe :q!<CR>  " Force exit current window
-noremap <leader>E :qa!<CR>   " Exit all windows
-
-" Quick open new tab
-nmap <Leader>t :tabnew<CR>
-" easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
-
-" map sort function to a key
-vnoremap <Leader>s :sort<CR>
-
-" easier moving of code blocks
-" Try to go into visual mode (v), thenselect several lines of code here and
-" then press ``>`` several times.
-vnoremap < <gv  " better indentation
-vnoremap > >gv  " better indentation
 
 "turn relative row numbers on
 set rnu
@@ -177,16 +153,62 @@ set cursorline
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
-
-" quick set up a python breakpoint
-map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
-
 set nocompatible
 filetype plugin on
 set nofoldenable    " disable folding on file open
-au FileType html setlocal foldmethod=indent
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+" -----------------------------------------------------------------------------
+" Basic mappings
+" -----------------------------------------------------------------------------
+
+" Quicksave command
+noremap <leader>w :w<CR>
+vnoremap <leader>w <C-C>:w<CR>
+inoremap <leader>w <C-O>:w<CR>++
+
+" Quick quit command
+noremap <leader>e :q<CR>  " Exit current window
+noremap <leader>fe :q!<CR>  " Force exit current window
+noremap <leader>E :qa!<CR>   " Exit all windows
+
+" Quick open new tab
+nmap <Leader>t :tabnew<CR>
+
+" easier moving between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_x
+
+" Prevent d from overriding what's in the clipboard.
+noremap d "_d
+noremap dd "_dd
+
+" Edit Vim config file in a new tab.
+map <Leader>ev :tabnew $MYVIMRC<CR>
+
+" Source Vim config file.
+map <Leader>sv :source $MYVIMRC<CR>
+
+" Toggle spell check.
+map <F5> :setlocal spell!<CR>
+
+" quick set up a python breakpoint
+map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
 
 " OS specific settings
 " Map Ctrl + / for Windows and Linux and Cmd + / for macOS to toggle comments
@@ -211,11 +233,13 @@ elseif has('win32')
   if echoOS
     echo "Windows Detected"
   endif
-  nmap <C-/> <plug>NERDCommenterToggle
-  vmap <C-/> <plug>NERDCommenterToggle
+  nmap <C-_> <plug>NERDCommenterToggle
+  vmap <C-_> <plug>NERDCommenterToggle
 else
 	echo "Vim could not detect the current operating system. Some settings could not be loaded"
 endif
+
+au FileType html setlocal foldmethod=indent
 
 " conda-vim settings
 " let g:conda_startup_msg_suppress = 1

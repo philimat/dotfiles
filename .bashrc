@@ -8,7 +8,10 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
-# Start tmux by default
+# Start tmux by defaultccess local X-server with VcXsrv.
+    #   Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
+    export DISPLAY=:0
+
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     #tmux attach -t default || tmux new -s default
 #fi

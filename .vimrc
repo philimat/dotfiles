@@ -156,7 +156,12 @@ set nocompatible
 filetype plugin on
 set nofoldenable    " disable folding on file open
 
-" enable all Python syntax highlighting features
+" Disable stupid backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile" enable all Python syntax highlighting features
+
 let python_highlight_all = 1
 
 " -----------------------------------------------------------------------------

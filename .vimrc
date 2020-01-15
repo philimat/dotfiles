@@ -58,7 +58,8 @@ Plug 'tmhedberg/SimpylFold'
 " Languages and file types.
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chrisbra/csv.vim'
-Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'lifepillar/pgsql.vim'
 Plug 'othree/html5.vim'
@@ -164,6 +165,7 @@ set noswapfile" enable all Python syntax highlighting features
 
 let python_highlight_all = 1
 
+let g:markdown_folding = 1
 " -----------------------------------------------------------------------------
 " Basic mappings
 " -----------------------------------------------------------------------------
@@ -194,6 +196,10 @@ vnoremap <Leader>s :sort<CR>
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
+" Format paragraph (selected or not) to 80 character lines.
+nnoremap <Leader>g gqap
+xnoremap <Leader>g gqa
+
 " Prevent x from overriding what's in the clipboard.
 noremap x "_x
 noremap X "_x
@@ -215,7 +221,7 @@ map <F5> :setlocal spell!<CR>
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
 
 au FileType html setlocal foldmethod=indent
-
+au FileType markdown setlocal foldmethod=indent
 " conda-vim settings
 " let g:conda_startup_msg_suppress = 1
 

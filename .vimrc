@@ -52,6 +52,9 @@ Plug 'gruvbox-community/gruvbox'
 " Better python folding
 Plug 'tmhedberg/SimpylFold'
 
+" Change surrounding parentheses, brackets, quotes, XML tags, and more
+Plug 'tpope/vim-surround'
+"
 " Plugin for better Conda integration
 "Plug 'cjrh/vim-conda'
 

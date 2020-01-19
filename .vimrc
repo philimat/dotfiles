@@ -54,7 +54,10 @@ Plug 'tmhedberg/SimpylFold'
 
 " Change surrounding parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
-"
+
+" Highlight search results as the search is being typed
+Plug 'haya14busa/incsearch.vim'
+
 " Plugin for better Conda integration
 "Plug 'cjrh/vim-conda'
 
@@ -156,6 +159,10 @@ set cursorline
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
+" highlight search results as they are being typed
+set hlsearch
+set incsearch
+
 set nocompatible
 filetype plugin on
 set nofoldenable    " disable folding on file open
@@ -172,16 +179,6 @@ let g:markdown_folding = 1
 " -----------------------------------------------------------------------------
 " Basic mappings
 " -----------------------------------------------------------------------------
-
-" Quicksave command
-noremap <leader>w :w<CR>
-vnoremap <leader>w <C-C>:w<CR>
-inoremap <leader>w <C-O>:w<CR>++
-
-" Quick quit command
-noremap <leader>e :q<CR>  " Exit current window
-noremap <leader>fe :q!<CR>  " Force exit current window
-noremap <leader>E :qa!<CR>   " Exit all windows
 
 " Quick open new tab
 nmap <Leader>t :tabnew<CR>
@@ -206,10 +203,6 @@ xnoremap <Leader>g gqa
 " Prevent x from overriding what's in the clipboard.
 noremap x "_x
 noremap X "_x
-
-" Prevent d from overriding what's in the clipboard.
-noremap d "_d
-noremap dd "_dd
 
 " Edit Vim config file in a new tab.
 map <Leader>ev :tabnew $MYVIMRC<CR>

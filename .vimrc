@@ -89,8 +89,8 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " Gruvbox comes with both a dark and light theme.
 set background=dark
 " Gruvbox has 'hard', 'medium' (default) and 'soft' contrast options.
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='hard'
+let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_contrast_light='medium'
 
 colorscheme gruvbox
 " For Gruvbox to look correct in terminal Vim you'll want to source a palette

@@ -16,6 +16,10 @@ source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
     #tmux attach -t default || tmux new -s default
 #fi
 
+# Use Vim for enhanced reading of man pages
+export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
+complete -o default -o nospace -F _man vman
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

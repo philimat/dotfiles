@@ -58,6 +58,9 @@ Plug 'tpope/vim-surround'
 " Highlight search results as the search is being typed
 Plug 'haya14busa/incsearch.vim'
 
+" Use Vim for man pages with vman command
+Plug 'jez/vim-superman'
+
 " Plugin for better Conda integration
 "Plug 'cjrh/vim-conda'
 
@@ -364,6 +367,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " -----------------------------------------------------------------------------
 " Plugin settings, mappings and autocommands
 " -----------------------------------------------------------------------------
+
+" for reading of man pages using :Man
+runtime! ftplugin/man.vim
 
 " .............................................................................
 " scrooloose/nerdtree

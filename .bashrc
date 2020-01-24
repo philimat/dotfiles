@@ -10,6 +10,10 @@
     #tmux attach -t default || tmux new -s default
 #fi
 
+# Get Gruvbox to show correctly. rysnc doesn't like
+# it so leave it commented when running that.
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+
 # Use Vim for enhanced reading of man pages
 export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
 complete -o default -o nospace -F _man vman
@@ -127,3 +131,19 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$($HOME'/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="$HOME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

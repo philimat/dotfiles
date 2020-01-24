@@ -13,7 +13,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     echo 'Mac OS detected'
     echo 'copying dotfiles to ~'
-    cp ./{.gitconfig,.vimrc,.inputrc,.bashrc,.bash_profile,.tmux.conf} ~/
+    cp ./{.gitconfig,.vimrc,.inputrc,.bash_profile,.tmux.conf} ~/
     echo 'moving coc-settings to .vim directory for coc.nvim extension'
     cp ./coc-settings.json ~/.vim
     echo 'sourcing .inputrc, .bash_profile and .tmux.conf'

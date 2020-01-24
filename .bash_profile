@@ -9,6 +9,10 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
+# Use Vim for enhanced reading of man pages
+export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
+complete -o default -o nospace -F _man vman
+
 # Homebrew
 export PATH=/usr/local/bin:$PATH
 

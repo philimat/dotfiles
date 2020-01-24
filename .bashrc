@@ -2,15 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Terminal Color Settings
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-
 # Start tmux by defaultccess local X-server with VcXsrv.
     #   Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
-    export DISPLAY=:0
+    #export DISPLAY=:0
 
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     #tmux attach -t default || tmux new -s default

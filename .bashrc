@@ -10,6 +10,11 @@
     #tmux attach -t default || tmux new -s default
 #fi
 
+# easier ssh-ing
+export rpi='pi@raspberrypi.local'
+export macmini='mattphilippi@Matts-Mac-Mini-3.local'
+export mbpro='mattphilippi@Matts-MacBook-Pro.local'
+
 # Get Gruvbox to show correctly. rysnc doesn't like
 # it so leave it commented when running that.
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"

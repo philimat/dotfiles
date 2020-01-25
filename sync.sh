@@ -2,15 +2,16 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Linux
     echo 'Linux detected'
-    rsync ~/{.gitconfig,.vimrc,.inputrc,.bashrc,.tmux.conf} ./
-    rsync ~/.vim/coc-settings.json ./
-    echo 'Synced!'
+    echo 'Syncing files...'
+    rsync -v ~/{.gitconfig,.vimrc,.inputrc,.bashrc,.tmux.conf} ./
+    rsync -v ~/.vim/coc-settings.json ./
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     echo 'Mac OS detected'
-    rsync ~/{.gitconfig,.vimrc,.inputrc,.bash_profile,.tmux.conf} ./
-    rsync ~/.vim/coc-settings.json ./
-    echo 'Synced!'
+    echo 'Syncing files...'
+    rsync -v ~/{.gitconfig,.vimrc,.inputrc,.bash_profile,.tmux.conf} ./
+    rsync -v ~/.vim/coc-settings.json ./
 
 else
     # Unknown OS

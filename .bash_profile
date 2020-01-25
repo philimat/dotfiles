@@ -13,6 +13,11 @@ source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
 complete -o default -o nospace -F _man vman
 
+# easier ssh-ing
+export rpi='pi@raspberrypi.local'
+export macmini='mattphilippi@Matts-Mac-Mini-3.local'
+export mbpro='mattphilippi@Matts-MacBook-Pro.local'
+
 # Homebrew
 export PATH=/usr/local/bin:$PATH
 

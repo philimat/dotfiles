@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "linux"* ]]; then
     # Linux
     echo 'Linux detected'
     #echo 'copying dotfiles to ~'
@@ -7,7 +7,10 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #echo 'moving coc-settings to .vim directory for coc.nvim extension'
     cp -v ./coc-settings.json ~/.vim
     echo 'sourcing .inputrc, .bashrc and .tmux.conf'
-    source -v ~/{.inputrc,.bashrc,.tmux.conf}
+    source ~/{.inputrc,.bashrc,.tmux.conf}
+    echo 'Installing Vim Plugins...'
+    vim -E -c PlugClean -c qa
+    vim -E -c PlugInstall -c qa
     echo 'Done!'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
@@ -17,6 +20,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     cp -v ./coc-settings.json ~/.vim
     echo 'sourcing .inputrc, .bash_profile and .tmux.conf'
     source ~/{.inputrc,.bash_profile,.tmux.conf}
+    echo 'Installing Vim Plugins...'
+    vim -E -c PlugClean -c qa
+    vim -E -c PlugInstall -c qa
     echo 'Done!'
 
 else

@@ -3,8 +3,10 @@
   "python.linting.enabled": true,
   "suggest.noselect": true,
   "python.jediEnabled": false,
+  "xml.java.home": "/Library/Java/JavaVirtualMachines/jdk-13.0.2.jdk/Contents/Home",
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
-    "python"
+    "python",
+    "xml"
   ]
 }

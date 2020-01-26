@@ -175,10 +175,17 @@ set nofoldenable    " disable folding on file open
 set nobackup
 set nowritebackup
 set noswapfile" enable all Python syntax highlighting features
-
 let python_highlight_all = 1
 
 let g:markdown_folding = 1
+
+au FileType html setlocal foldmethod=indent
+au FileType markdown setlocal foldmethod=indent
+au FileType markdown setlocal tabstop=2
+au FileType markdown setlocal shiftwidth=2
+" conda-vim settings
+" let g:conda_startup_msg_suppress = 1
+
 " -----------------------------------------------------------------------------
 " Basic mappings
 " -----------------------------------------------------------------------------
@@ -207,6 +214,12 @@ xnoremap <Leader>g gqa
 noremap x "_x
 noremap X "_x
 
+" Better windows resizing
+noremap <C-w>+ 10<C-w>+
+noremap <C-w>- 10<C-w>-
+noremap <C-w>> 10<C-w>>
+noremap <C-w>< 10<C-w><
+
 " Edit Vim config file in a new tab.
 map <Leader>ev :tabnew $MYVIMRC<CR>
 
@@ -219,10 +232,7 @@ map <F5> :setlocal spell!<CR>
 " quick set up a python breakpoint
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
 
-au FileType html setlocal foldmethod=indent
-au FileType markdown setlocal foldmethod=indent
-" conda-vim settings
-" let g:conda_startup_msg_suppress = 1
+
 
 " coc config
 let g:coc_global_extensions = [

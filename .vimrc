@@ -403,7 +403,9 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 nmap <C-n> :NERDTreeToggle<CR>
-autocmd VimEnter *.py NERDTree
+
+" open NERDTree for python files
+" autocmd VimEnter *.py NERDTree
 
 let g:NERDTreeShowHidden=1
 let g:NERDTreeAutoDeleteBuffer=1

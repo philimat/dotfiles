@@ -16,6 +16,14 @@ complete -o default -o nospace -F _man vman
 # Directory for personal scripts and programs
 export PATH="$PATH:$HOME/bin"
 
+# Update .bash_history in realtime
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
 # easier ssh-ing
 export rpi='pi@raspberrypi.local'
 export macmini='mattphilippi@Matts-Mac-Mini-3.local'

@@ -9,12 +9,12 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
 
+# Directory for personal scripts and programs
+export PATH="$PATH:$HOME/bin"
+
 # Use Vim for enhanced reading of man pages
 export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
 complete -o default -o nospace -F _man vman
-
-# Directory for personal scripts and programs
-export PATH="$PATH:$HOME/bin"
 
 # Update .bash_history in realtime
 shopt -s histappend
@@ -31,10 +31,6 @@ export mbpro='mattphilippi@Matts-MacBook-Pro.local'
 
 # Homebrew
 export PATH=/usr/local/bin:$PATH
-
-# MacPorts Installer addition on 2019-04-04_at_06:52:05: adding an appropriate PATH variable for use with MacPorts.
- export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

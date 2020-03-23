@@ -7,7 +7,10 @@ fi
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+# Check whether shell is interactive for colorscheme
+case $- in
+    *i*) source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh" ;;
+esac
 
 # Directory for personal scripts and programs
 export PATH="$PATH:$HOME/bin"

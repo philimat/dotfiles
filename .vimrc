@@ -135,7 +135,8 @@ set rnu
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
+"set tw=79   " width of document (used by gd)
+set tw=0
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80
@@ -179,6 +180,7 @@ let python_highlight_all = 1
 
 let g:markdown_folding = 1
 
+au FileType python setlocal tabstop=4
 au FileType html setlocal foldmethod=indent
 au FileType markdown setlocal foldmethod=indent
 au FileType markdown setlocal tabstop=2

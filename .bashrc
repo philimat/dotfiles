@@ -15,19 +15,16 @@ export rpi='pi@raspberrypi.local'
 export macmini='mattphilippi@Matts-Mac-Mini-3.local'
 export mbpro='mattphilippi@Matts-MacBook-Pro.local'
 
-# Get Gruvbox to show correctly. rysnc doesn't like
-# it so leave it commented when running that.
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+# Check whether shell is interactive for colorscheme
+# If not running interactively, don't do anything
+case $- in
+    *i*) source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh" ;;
+      *) return;;
+esac
 
 # Use Vim for enhanced reading of man pages
 export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
 complete -o default -o nospace -F _man vman
-
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

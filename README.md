@@ -32,23 +32,17 @@ git clone https://github.com/philimat/dotfiles.git
 
     iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
     Other actions... &rightarrow; import JSON Profiles... &rightarrow;
-    "/Users/mattphilippi/dotfiles/schemes/gruvbox/Gruvbox-dark.json"
+    "[PATHTO]/dotfiles/schemes/gruvbox/Gruvbox-dark.json"
 
   - Fix some keymappings
 
     iTerm2 &rightarrow; Preferences &rightarrow; Keys &rightarrow;
     Presets... &rightarrow; Import... &rightarrow;
-    "/Users/mattphilippi/dotfiles/vim.itermkeymap"
-
-- Install Vim
-
-  ```sh
-  brew install macvim
-  ```  
+    "[PATHTO]/dotfiles/iTerm2/vim.itermkeymap"
 
 - Homebrew  
 
-  - First, install Homebrew.  
+  - Install Homebrew if you don't already have it.  
 
   ```sh
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -66,15 +60,10 @@ git clone https://github.com/philimat/dotfiles.git
   brew doctor
   ```  
 
-  - Add Homebrew's location to your `$PATH` in your `.bash_profile` or `.zshrc`
-  file.  
-
-  ```sh
-  export PATH="/usr/local/bin:$PATH"
-  ```  
+- Install bash, macvim ,tmux, and node
 
 ```sh
-brew install tmux
+brew install bash macvim tmux node
 ```
 
 - Install vim-plug
@@ -103,12 +92,6 @@ tmux
 
 `prefix`+<kbd>I</kbd>  
 
-- Install Node.js  
-
-```sh
-brew install node
-```  
-
 - Install Nerd Fonts for NERDTree to work with vim-devicons  
 
 ```sh
@@ -116,15 +99,8 @@ brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 ```
 
-Terminal &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
-\<Default profile\> &rightarrow; Text &rightarrow; Change ... &rightarrow;
-Family &rightarrow; Hack Nerd Font
-
-- Install vim plugins
-
-```sh
-vim -E -c PlugInstall -c qa
-```
+iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
+\<profile name\> &rightarrow; Text &rightarrow;Font &rightarrow; Hack Nerd Font
 
 ## **Ubuntu**
 

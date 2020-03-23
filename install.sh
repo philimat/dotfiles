@@ -4,7 +4,7 @@ SHELL_CONFIGS=(".inputrc"
 TMUX_CONFIG=".tmux.conf"
 GIT_CONFIG=".gitconfig"
 VIM_CONFIG=".vimrc"
-COC_CONFIG="coc-settings.json"
+COC_CONFIG=".vim/coc-settings.json"
 
 echo 'OSTYPE is' $OSTYPE
 
@@ -41,16 +41,16 @@ do
 
 done
 
-cmp --silent ./$COC_CONFIG ~/.vim/$COC_CONFIG
+cmp --silent ./$COC_CONFIG ~/$COC_CONFIG
 exit_status=$?
 if [[ $exit_status -eq 1 ]]; then
    echo $f has updates
    echo -n "would you like to see the diff? (y/n [n]) "
    read -r ans
    if [[ ans -eq 'y' ]]; then
-       git diff ./$COC_CONFIG ~/.vim/$COC_CONFIG
+       git diff ./$COC_CONFIG ~/$COC_CONFIG
    fi
-   cp -v -i ./$COC_CONFIG ~/.vim
+   cp -v -i ./$COC_CONFIG ~/$COC_CONFIG
 fi
 
 # load shell configuration into current shell

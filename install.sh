@@ -34,7 +34,7 @@ do
        echo -n "would you like to see the diff? (y/n [n]) "
        read -r ans
        if [[ ans -eq 'y' ]]; then
-           git diff ./$f ~/$f
+           git diff ~/$f ./$f
        fi
        cp -v -i ./$f ~/
     fi
@@ -48,7 +48,7 @@ if [[ $exit_status -eq 1 ]]; then
    echo -n "would you like to see the diff? (y/n [n]) "
    read -r ans
    if [[ ans -eq 'y' ]]; then
-       git diff ./$COC_CONFIG ~/$COC_CONFIG
+       git diff ~/$COC_CONFIG ./$COC_CONFIG
    fi
    cp -v -i ./$COC_CONFIG ~/$COC_CONFIG
 fi

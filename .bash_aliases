@@ -14,8 +14,9 @@ alias rm="rm -i"
 alias gs='git status'
 alias ga='git add'
 alias gd='git diff'
-alias gc='git commit'
-alias gp='git push'
+alias gcommit='git commit'
+alias gpush='git push'
+alias gpull='git pull'
 
 # history aliases
 alias h='history 5'                 # show last five lines

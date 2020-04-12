@@ -1,12 +1,12 @@
-# Source .bashrc
-if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
-fi
-
 # Terminal Color Settings
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Use vim
+export EDITOR=vim
+export VISUAL=vim
+
 # Check whether shell is interactive for colorscheme
 case $- in
     *i*) source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh" ;;
@@ -19,21 +19,28 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
 complete -o default -o nospace -F _man vman
 
-# Update .bash_history in realtime
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
 shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# easier ssh-ing
-export rpi='pi@raspberrypi.local'
-export macmini='mattphilippi@Matts-Mac-Mini-3.local'
-export mbpro='mattphilippi@Matts-MacBook-Pro.local'
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # Homebrew
 export PATH=/usr/local/bin:$PATH
+
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -49,4 +56,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

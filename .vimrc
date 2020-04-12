@@ -64,6 +64,9 @@ Plug 'jez/vim-superman'
 " Plugin for better Conda integration
 "Plug 'cjrh/vim-conda'
 
+" Camel case motion through words
+Plug 'bkad/CamelCaseMotion'
+"
 " Languages and file types.
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'chrisbra/csv.vim'
@@ -232,7 +235,7 @@ map <Leader>sv :source $MYVIMRC<CR>
 map <F5> :setlocal spell!<CR>
 
 " quick set up a python breakpoint
-map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>d Oimport pdb; pdb.set_trace() # BREAKPOINT<C-c>
 
 
 
@@ -411,6 +414,12 @@ nmap <C-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeShowHidden=1
 let g:NERDTreeAutoDeleteBuffer=1
+"
+" .............................................................................
+" bkad/CamelCaseMotion.vim
+" .............................................................................
+
+let g:camelcasemotion_key = '<leader>'
 
 " .............................................................................
 " junegunn/limelight.vim

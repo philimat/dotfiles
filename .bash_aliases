@@ -12,7 +12,9 @@ alias rm="rm -i"
 
 # git aliases
 alias gs='git status'
+alias ga='git add'
 alias gd='git diff'
+alias gc='git commit'
 alias gp='git push'
 
 # history aliases

@@ -1,5 +1,5 @@
 #!/bin/bash
-SHELL_CONFIGS=(".inputrc"
+SHELL_CONFIGS=(".inputrc",".bash_aliases"
 )
 TMUX_CONFIG=".tmux.conf"
 GIT_CONFIG=".gitconfig"

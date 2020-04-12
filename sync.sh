@@ -1,12 +1,12 @@
 #!/bin/bash
 if [[ "$OSTYPE" == "linux"* ]]; then
     # Linux
-    rsync -v ~/{.gitconfig,.vimrc,.inputrc,.bashrc,.tmux.conf} ./
+    rsync -v ~/{.gitconfig,.vimrc,.inputrc,.bashrc,.tmux.conf,.bash_aliases} ./
     rsync -v ~/.vim/coc-settings.json ./.vim
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    rsync -v ~/{.gitconfig,.vimrc,.inputrc,.bash_profile,.tmux.conf} ./
+    rsync -v ~/{.gitconfig,.vimrc,.inputrc,.bash_profile,.tmux.conf,.bash_aliases} ./
     rsync -v ~/.vim/coc-settings.json ./.vim
 else
     # Unknown OS

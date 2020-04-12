@@ -2,21 +2,14 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Start tmux by defaultccess local X-server with VcXsrv.
-    #   Requires: https://sourceforge.net/projects/vcxsrv/ (or alternative)
-    #export DISPLAY=:0
+# remap caps lock to escape
+if [ -n "${DISPLAY+x}" ]; then
+	xmodmap -e 'keycode 66=Escape'
+fi
 
-#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    #tmux attach -t default || tmux new -s default
-#fi
-
-# this should be 'miniconda3' or 'anaconda3'
-CONDA='anaconda3'
-
-# easier ssh-ing
-export rpi='pi@raspberrypi.local'
-export macmini='mattphilippi@Matts-Mac-Mini-3.local'
-export mbpro='mattphilippi@Matts-MacBook-Pro.local'
+# Use vim
+export EDITOR=vim
+export VISUAL=vim
 
 # Check whether shell is interactive for colorscheme
 # If not running interactively, don't do anything
@@ -24,6 +17,10 @@ case $- in
     *i*) source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh" ;;
       *) return;;
 esac
+
+
+# Directory for personal scripts and programs
+export PATH="$PATH:$HOME/bin"
 
 # Use Vim for enhanced reading of man pages
 export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
@@ -85,6 +82,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -106,23 +104,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# set ls file colors
+LS_COLORS=$LS_COLORS:'di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=34;43'
+export LS_COLORS
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -138,21 +131,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/$CONDA/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/$CONDA/etc/profile.d/conda.sh" ]; then
-        . "$HOME/$CONDA/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# set file colors
-LS_COLORS=$LS_COLORS:'di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=34;43'
-export LS_COLORS
+# virtualenv and virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_ENV_BIN_DIR=bin

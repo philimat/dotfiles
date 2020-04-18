@@ -27,40 +27,40 @@ fi
 for f in ${SHELL_CONFIGS[@]} $TMUX_CONFIG $GIT_CONFIG $VIM_CONFIG;
 do
     # check if file exists and do a compare if it does
-    if [[ -f "$f" ]]; then
+    if [[ -f ~/"$f" ]]; then
         cmp --silent ./"$f" ~/"$f"
         exit_status=$?
         if [[ $exit_status -eq 1 ]]; then
            echo "$f" has updates
            echo -n "would you like to see the diff? (y/n [n]) "
            read -r ans
-           if [[ ans -eq 'y' ]]; then
+           if [[ ans == 'y' ]]; then
                git diff ~/"$f" ./"$f"
            fi
             cp -v -i ./"$f" ~/
         fi
     else
-        cp -v ./"$f" ~/
+        cp -v "$f" ~/
     fi
 
 done
 
 # check if file exists and do a compare if it does
-if [[ -f "$f" ]]; then
+if [[ -f ~/"$COC_CONFIG" ]]; then
     cmp --silent ./"$COC_CONFIG" ~/"$COC_CONFIG"
     exit_status=$?
     if [[ $exit_status -eq 1 ]]; then
        echo $f has updates
        echo -n "would you like to see the diff? (y/n [n]) "
        read -r ans
-       if [[ ans -eq 'y' ]]; then
+       if [[ ans == 'y' ]]; then
            git diff ~/"$COC_CONFIG" ./"$COC_CONFIG"
        fi
        cp -v -i ./"$COC_CONFIG" ~/"$COC_CONFIG"
     fi
 else
     #[[ -d "~/.vim"]] || mkdir ~/.vim
-    cp -v ./"$COC_CONFIG" ~/"$COC_CONFIG"
+    cp -v "$COC_CONFIG" ~/"$COC_CONFIG"
 fi
 
 echo 'Installing Vim Plugins...'

@@ -1,7 +1,7 @@
 
 # dotfiles
 
-My configuration files: Vim, Bash, tmux, and some VS Code stuff
+My configuration files: Vim, Bash, tmux
 
 ## **macOS**  
 
@@ -20,25 +20,19 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
   2. Create the simple modifications shown below:  
 ![](images/karabiner.png)  
 
-- Clone dotfiles
-
-```sh
-git clone https://github.com/philimat/dotfiles.git
-```
-
 - Install [iTerm2](https://iterm2.com)
 
   - Apply Gruvbox-dark Colorscheme
 
     iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
     Other actions... &rightarrow; import JSON Profiles... &rightarrow;
-    "[PATHTO]/dotfiles/schemes/gruvbox/Gruvbox-dark.json"
+    "$HOME/dotfiles/schemes/gruvbox/Gruvbox-dark.json"
 
   - Fix some keymappings
 
     iTerm2 &rightarrow; Preferences &rightarrow; Keys &rightarrow;
     Presets... &rightarrow; Import... &rightarrow;
-    "[PATHTO]/dotfiles/iTerm2/vim.itermkeymap"
+    "$HOME/dotfiles/iTerm2/vim.itermkeymap"
 
 - Homebrew  
 
@@ -54,16 +48,10 @@ git clone https://github.com/philimat/dotfiles.git
   brew update
   ```  
 
-  - Follow any brew doctor recommendations  
-
-  ```sh
-  brew doctor
-  ```  
-
-- Install bash, macvim ,tmux, and node
+- Install packages
 
 ```sh
-brew install bash macvim tmux node
+brew install git bash macvim tmux node
 ```
 
 - Install vim-plug
@@ -73,24 +61,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-- Install dotfiles
-
-```sh
-cd ~/dotfiles
-./install.sh
-cd
-```
-
 - Install tpm
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux
 ```
-
-- Install tmux plugins
-
-`prefix`+<kbd>I</kbd>  
 
 - Install Nerd Fonts for NERDTree to work with vim-devicons  
 
@@ -101,6 +77,87 @@ brew cask install font-hack-nerd-font
 
 iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
 \<profile name\> &rightarrow; Text &rightarrow;Font &rightarrow; Hack Nerd Font
+
+- Clone dotfiles
+
+```sh
+git clone https://github.com/philimat/dotfiles.git ~
+```
+
+- Install dotfiles
+
+```sh
+cd ~/dotfiles
+./install.sh
+cd
+```
+
+- Install tmux plugins
+
+`prefix`+<kbd>I</kbd>  
+
+
+## **Raspbian**
+
+- Update apt-get
+
+  ```sh
+  sudo apt-get update
+  ```  
+
+- Enable the NodeSource repository
+
+  ```sh
+  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+  ```  
+
+- Install packages
+
+  ```sh
+  sudo apt-get install git vim tmux nodejs
+  ```  
+
+- Install vim-plug
+
+```sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+- Install tpm
+
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux
+```
+
+- Install Nerd Fonts for NERDTree to work with vim-devicons  
+
+```sh
+sudo apt-get install fonts-hack-ttf
+```
+
+- Open a new LXTerminal  
+LXTerminal &rightarrow; Edit &rightarrow; Style &rightarrow;
+Terminal font &rightarrow; Hack Bold
+
+- Clone dotfiles
+
+```sh
+git clone https://github.com/philimat/dotfiles.git ~
+```
+
+- Install dotfiles
+
+```sh
+cd ~/dotfiles
+./install.sh
+cd
+```
+
+- Install tmux plugins
+
+`prefix`+<kbd>I</kbd>  
 
 ## **Ubuntu**
 

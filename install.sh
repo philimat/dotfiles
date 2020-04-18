@@ -69,4 +69,4 @@ vim -E -c PlugClean -c qa
 vim -E -c PlugInstall -c qa
 
 echo 'Done!'
-echo 'Close and restart shell for all changes to take effect'
+echo 'Close and restart shell or source config files for changes to take effect'

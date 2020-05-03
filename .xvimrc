@@ -1,0 +1,50 @@
+" " -----------------------------------------------------------------------------
+" Basic Settings
+"   Research any of these by running :help <setting>
+" -----------------------------------------------------------------------------
+
+let mapleader = ','
+set ignorecase
+set clipboard=unnamed
+set relativenumber
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
+" highlight search results as they are being typed
+set hlsearch
+set incsearch
+
+" -----------------------------------------------------------------------------
+" Basic mappings
+" -----------------------------------------------------------------------------
+
+" yank to end of line
+nnoremap Y y$
+
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_x
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv
+vnoremap > >gv
+
+map <C-n> :xccmd toggleNavigatorsVisibility<CR>
+map ,in :xccmd showInFinder<CR>
+nmap ,t :xccmd newTab<CR>
+map ,tp :xccmd selectPreviousTab<CR>
+map <S-Tab> :xccmd selectPreviousTab<CR>
+map ,tn :xccmd selectNextTab<CR>
+map <C-Tab> :xccmd selectNextTab<CR>
+nmap ,d :xccmd toggleBreakpointAtCurrentLine<CR>
+nmap ,w :xccmd saveDocument<CR>
+nmap ,q :xccmd closeDocument<CR>
+
+nnoremap zc :xccmd fold<CR>
+nnoremap zo :xccmd unfold<CR>
+nnoremap zR :xccmd unfoldAll<CR>
+nnoremap zcm :xccmd foldAllMethods<CR>
+nnoremap zom :xccmd unfoldAllMethods<CR>

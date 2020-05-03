@@ -60,3 +60,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	alias pia-status='piactl get connectionstate'
 	alias pia-region='piactl get region'
 fi
+
+# Local bash aliases
+if [ -f ~/.bash_aliases.local ]; then
+    . ~/.bash_aliases.local
+fi

@@ -65,7 +65,6 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux
 ```
 
 - Install Nerd Fonts for NERDTree to work with vim-devicons  
@@ -81,7 +80,7 @@ iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
 - Clone dotfiles
 
 ```sh
-git clone https://github.com/philimat/dotfiles.git ~
+git clone https://github.com/philimat/dotfiles.git ~/dotfiles
 ```
 
 - Install dotfiles
@@ -89,11 +88,14 @@ git clone https://github.com/philimat/dotfiles.git ~
 ```sh
 cd ~/dotfiles
 ./install.sh
-cd
+exit
 ```
 
 - Install tmux plugins
 
+```sh
+tmux
+```
 `prefix`+<kbd>I</kbd>  
 
 
@@ -128,7 +130,6 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux
 ```
 
 - Install Nerd Fonts for NERDTree to work with vim-devicons  
@@ -144,7 +145,7 @@ Terminal font &rightarrow; Hack Bold
 - Clone dotfiles
 
 ```sh
-git clone https://github.com/philimat/dotfiles.git ~
+git clone https://github.com/philimat/dotfiles.git ~/dotfiles
 ```
 
 - Install dotfiles
@@ -152,11 +153,20 @@ git clone https://github.com/philimat/dotfiles.git ~
 ```sh
 cd ~/dotfiles
 ./install.sh
-cd
+```
+
+- Change LXTerminal to gruvbox dark
+
+```sh
+cp ~/dotfiles/schemes/gruvbox/gruvbox_dark_medium_lxterminal.conf ~/.config/lxterminal/lxterminal.conf
+exit
 ```
 
 - Install tmux plugins
 
+```sh
+tmux
+```
 `prefix`+<kbd>I</kbd>  
 
 ## **Ubuntu**

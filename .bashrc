@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Bash functions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
 # remap caps lock to escape
 if [ -n "${DISPLAY+x}" ]; then
 	xmodmap -e 'keycode 66=Escape'
@@ -118,6 +123,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# Local bash settings
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
 fi
 
 # enable programmable completion features (you don't need to enable

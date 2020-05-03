@@ -1,6 +1,7 @@
 #!/bin/bash
 SHELL_CONFIGS=(".inputrc")
 SHELL_CONFIGS+=(".bash_aliases")
+SHELL_CONFIGS+=(".bash_functions")
 TMUX_CONFIG=".tmux.conf"
 GIT_CONFIG=".gitconfig"
 VIM_CONFIGS=(".vimrc")

@@ -65,6 +65,15 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+<<<<<<< Updated upstream
+=======
+```
+
+- Activate tmux
+
+```sh
+tmux
+>>>>>>> Stashed changes
 ```
 
 - Install Nerd Fonts for NERDTree to work with vim-devicons  
@@ -103,21 +112,21 @@ tmux
 
 - Update apt-get
 
-  ```sh
-  sudo apt-get update
-  ```  
+```sh
+sudo apt-get update
+```  
 
 - Enable the NodeSource repository
 
-  ```sh
-  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-  ```  
+```sh
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+```  
 
 - Install packages
 
-  ```sh
-  sudo apt-get install git vim tmux nodejs
-  ```  
+```sh
+sudo apt-get install git vim tmux nodejs
+```  
 
 - Install vim-plug
 
@@ -138,14 +147,16 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo apt-get install fonts-hack-ttf
 ```
 
-- Open a new LXTerminal  
-LXTerminal &rightarrow; Edit &rightarrow; Style &rightarrow;
-Terminal font &rightarrow; Hack Bold
-
 - Clone dotfiles
 
 ```sh
 git clone https://github.com/philimat/dotfiles.git ~/dotfiles
+```
+
+- Apply LXTerminal Colorscheme and Hack Bold font
+
+```sh
+cp -i ~/dotfiles/schemes/gruvbox/gruvbox_dark_medium_lxterminal.conf ~/.config/lxterminal/lxterminal.conf
 ```
 
 - Install dotfiles
@@ -168,6 +179,8 @@ exit
 tmux
 ```
 `prefix`+<kbd>I</kbd>  
+
+- Restart LXTerminal
 
 ## **Ubuntu**
 

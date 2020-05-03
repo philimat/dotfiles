@@ -194,6 +194,8 @@ au FileType markdown setlocal shiftwidth=2
 " -----------------------------------------------------------------------------
 " Basic mappings
 " -----------------------------------------------------------------------------
+" Yank to end of line
+nmap Y y$
 
 " Quick open new tab
 nmap <Leader>t :tabnew<CR>

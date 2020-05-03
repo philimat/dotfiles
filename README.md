@@ -65,15 +65,6 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-<<<<<<< Updated upstream
-=======
-```
-
-- Activate tmux
-
-```sh
-tmux
->>>>>>> Stashed changes
 ```
 
 - Install Nerd Fonts for NERDTree to work with vim-devicons  

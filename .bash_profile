@@ -1,3 +1,6 @@
+# Silence MacOS Catalina Bash Warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Bash functions
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
@@ -51,3 +54,4 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+

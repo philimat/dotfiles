@@ -5,13 +5,6 @@ My configuration files: Vim, Bash, tmux
 
 ## **macOS**  
 
-- To enable key repeats in VS Code for Vim extension, type these commands into Terminal:  
-
-```sh
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false  
-defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default  
-```
-
 - Remap <kbd>caps lock</kbd>&rightarrow;<kbd>esc</kbd> &nbsp; &
  &nbsp; <kbd>esc</kbd>&rightarrow;<kbd>caps lock</kbd>  
 
@@ -20,26 +13,13 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
   2. Create the simple modifications shown below:  
 ![](images/karabiner.png)  
 
-- Install [iTerm2](https://iterm2.com)
-
-  - Apply Gruvbox-dark Colorscheme
-
-    iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
-    Other actions... &rightarrow; import JSON Profiles... &rightarrow;
-    "$HOME/dotfiles/schemes/gruvbox/Gruvbox-dark.json"
-
-  - Fix some keymappings
-
-    iTerm2 &rightarrow; Preferences &rightarrow; Keys &rightarrow;
-    Presets... &rightarrow; Import... &rightarrow;
-    "$HOME/dotfiles/iTerm2/vim.itermkeymap"
 
 - Homebrew  
 
   - Install Homebrew if you don't already have it.  
 
   ```sh
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```  
 
   - Make sure Homebrew is up to date.  
@@ -74,14 +54,27 @@ brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 ```
 
-iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
-\<profile name\> &rightarrow; Text &rightarrow;Font &rightarrow; Hack Nerd Font
-
 - Clone dotfiles
 
 ```sh
 git clone https://github.com/philimat/dotfiles.git ~/dotfiles
 ```
+
+- Install [iTerm2](https://iterm2.com)
+
+  - Apply Gruvbox-dark Colorscheme
+
+    - iTerm2 &rightarrow; Preferences &rightarrow; Profiles &rightarrow;
+      Other actions... &rightarrow; import JSON Profiles... &rightarrow;
+      `$HOME/dotfiles/schemes/gruvbox/Gruvbox-dark.json`
+
+    - Select Gruvbox-dark profile and set as default
+
+  - Change some keymappings
+
+    - iTerm2 &rightarrow; Preferences &rightarrow; Keys &rightarrow;
+      Presets... &rightarrow; Import... &rightarrow;
+      `$HOME/dotfiles/iTerm2/vim.itermkeymap`  
 
 - Install dotfiles
 
@@ -96,8 +89,15 @@ exit
 ```sh
 tmux
 ```
-`prefix`+<kbd>I</kbd>  
+`<Ctrl+a>`+<kbd>I</kbd>  
 
+
+- To enable key repeats in VS Code for Vim extension:  
+
+```sh
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false  
+defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default  
+```
 
 ## **Raspbian**
 

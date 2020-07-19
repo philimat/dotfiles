@@ -34,6 +34,8 @@
 	<string>0.666667 0.690196 0.117647 1</string>
 	<key>DVTFontAndColorVersion</key>
 	<integer>1</integer>
+	<key>DVTLineSpacing</key>
+	<real>1.1000000238418579</real>
 	<key>DVTMarkupTextBackgroundColor</key>
 	<string>0.188235 0.188235 0.188235 1</string>
 	<key>DVTMarkupTextBorderColor</key>
@@ -43,33 +45,33 @@
 	<key>DVTMarkupTextEmphasisColor</key>
 	<string>0.901961 0.831373 0.639216 1</string>
 	<key>DVTMarkupTextEmphasisFont</key>
-	<string>.SFNS-RegularItalic - 13.0</string>
+	<string>.SFNS-RegularItalic - 12.0</string>
 	<key>DVTMarkupTextInlineCodeColor</key>
 	<string>0.901961 0.831373 0.639216 0.7</string>
 	<key>DVTMarkupTextLinkColor</key>
 	<string>0.443137 0.584314 0.52549 1</string>
 	<key>DVTMarkupTextLinkFont</key>
-	<string>.SFNS-Regular - 13.0</string>
+	<string>.SFNS-Regular - 12.0</string>
 	<key>DVTMarkupTextNormalColor</key>
 	<string>0.901961 0.831373 0.639216 1</string>
 	<key>DVTMarkupTextNormalFont</key>
-	<string>.SFNS-Regular - 13.0</string>
+	<string>.SFNS-Regular - 12.0</string>
 	<key>DVTMarkupTextOtherHeadingColor</key>
 	<string>0.901961 0.831373 0.639216 0.5</string>
 	<key>DVTMarkupTextOtherHeadingFont</key>
-	<string>.SFNS-Regular - 18.2</string>
+	<string>.SFNS-Regular - 16.8</string>
 	<key>DVTMarkupTextPrimaryHeadingColor</key>
 	<string>0.901961 0.831373 0.639216 1</string>
 	<key>DVTMarkupTextPrimaryHeadingFont</key>
-	<string>.SFNS-Regular - 31.2</string>
+	<string>.SFNS-Regular - 28.8</string>
 	<key>DVTMarkupTextSecondaryHeadingColor</key>
 	<string>0.901961 0.831373 0.639216 1</string>
 	<key>DVTMarkupTextSecondaryHeadingFont</key>
-	<string>.SFNS-Regular - 23.4</string>
+	<string>.SFNS-Regular - 21.6</string>
 	<key>DVTMarkupTextStrongColor</key>
 	<string>0.901961 0.831373 0.639216 1</string>
 	<key>DVTMarkupTextStrongFont</key>
-	<string>.SFNS-Bold - 13.0</string>
+	<string>.SFNS-Bold - 12.0</string>
 	<key>DVTScrollbarMarkerAnalyzerColor</key>
 	<string>0.403922 0.372549 1 1</string>
 	<key>DVTScrollbarMarkerBreakpointColor</key>
@@ -133,7 +135,7 @@
 		<key>xcode.syntax.identifier.type.system</key>
 		<string>0.984314 0.415686 0.0862745 1</string>
 		<key>xcode.syntax.identifier.variable</key>
-		<string>0.901961 0.831373 0.639216 1</string>
+		<string>0.462275 0.666345 0.388832 1</string>
 		<key>xcode.syntax.identifier.variable.system</key>
 		<string>0.901961 0.831373 0.639216 1</string>
 		<key>xcode.syntax.keyword</key>

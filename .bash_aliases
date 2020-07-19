@@ -28,7 +28,7 @@ alias histo='history 70 | less'     # show last 70; pipe to 'less'
 alias histor='history 100 | less'   # show last 100; pipe to 'less'
 
 # check current external ip address
-alias checkip="curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+alias checkip="curl ipinfo.io/ip"
 
 # transmission-remote aliases
 alias tsm='transmission-remote'

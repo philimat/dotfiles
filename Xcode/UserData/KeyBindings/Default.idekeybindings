@@ -22,6 +22,7 @@
 				<string>insertNewline:</string>
 				<string>moveToBeginningOfParagraph:</string>
 				<string>paste:</string>
+				<string>moveToBeginningOfText:</string>
 			</array>
 			<key>^$K</key>
 			<array>

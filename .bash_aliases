@@ -17,6 +17,7 @@ alias gd='git diff'
 alias gcommit='git commit'
 alias gpush='git push'
 alias gpull='git pull'
+alias cdgitroot='cd $(git root)'
 
 # history aliases
 alias h='history 5'                 # show last five lines

@@ -1,0 +1,9 @@
+ssl_verify: true
+channels:
+  - defaults
+  - conda-forge
+channel_priority: flexible
+create_default_packages:
+  - pylint
+  - rope
+  - autopep8

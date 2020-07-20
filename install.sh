@@ -35,7 +35,7 @@ do
 done
 
 # remove existing coc-settings and link to dotfiles repo
-if [[ -L ~/"$COC_CONFIG" ]] || [[ -L ~/"$COC_CONFIG" ]] ; then
+if [[ -e ~/"$COC_CONFIG" ]] || [[ -L ~/"$COC_CONFIG" ]] ; then
     rm -v -i ~/"$COC_CONFIG"
 fi
 

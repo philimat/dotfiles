@@ -280,6 +280,10 @@
             <string>selectParagraph:</string>
             <key>Select Word</key>
             <string>selectWord:</string>
+            <key>Move Up 5 Lines</key>
+            <string>moveUp:, moveUp:, moveUp:, moveUp:, moveUp:</string>
+            <key>Move Down 5 Lines</key>
+            <string>moveDown:, moveDown:, moveDown:, moveDown:, moveDown:</string>
         </dict>
         <key>Undo/Redo</key>
         <dict>

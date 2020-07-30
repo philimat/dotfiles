@@ -5,6 +5,7 @@ SHELL_CONFIGS+=(".bash_functions")
 TMUX_CONFIG=".tmux.conf"
 GIT_CONFIG=".gitconfig"
 VIM_CONFIGS=(".vimrc")
+CONDA_CONFIGS=(".condarc")
 COC_CONFIG=".vim/coc-settings.json"
 
 echo 'OSTYPE is' "$OSTYPE"
@@ -26,7 +27,7 @@ else
 fi
 
 # remove home directory config files and link to dotfiles repo
-for f in ${SHELL_CONFIGS[@]} ${VIM_CONFIGS[@]} $TMUX_CONFIG $GIT_CONFIG;
+for f in ${SHELL_CONFIGS[@]} ${VIM_CONFIGS[@]} $TMUX_CONFIG $GIT_CONFIG $CONDA_CONFIG;
 do
     if [[ -e ~/"$f" ]] || [[ -L ~/"$f" ]]; then
         rm -v -i ~/"$f"
@@ -35,7 +36,7 @@ do
 done
 
 # remove existing coc-settings and link to dotfiles repo
-if [[ -L ~/"$COC_CONFIG" ]] || [[ -L ~/"$COC_CONFIG" ]] ; then
+if [[ -e ~/"$COC_CONFIG" ]] || [[ -L ~/"$COC_CONFIG" ]] ; then
     rm -v -i ~/"$COC_CONFIG"
 fi
 

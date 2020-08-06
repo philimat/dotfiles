@@ -4,6 +4,4 @@ channels:
   - conda-forge
 channel_priority: flexible
 create_default_packages:
-  - pylint
-  - rope
-  - autopep8
+pip_interop_enabled: true

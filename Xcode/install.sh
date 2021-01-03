@@ -6,7 +6,7 @@ SCRIPT_DIR=$(dirname "$0")
 echo "Copying over Xcode UserData..."
 cp -ir $SCRIPT_DIR/UserData ~/Library/Developer/Xcode/
 
-if [[ -d "$XCODE_BETA_KEYBINDINGS_DIR" ]]; then
+if [[ -d "$XCODE_KEYBINDINGS_DIR" ]]; then
     echo "Copying over Xcode custom keybindings..."
     sudo cp -i $SCRIPT_DIR/IDETextKeyBindingSet.plist "$XCODE_KEYBINDINGS_DIR"
 fi

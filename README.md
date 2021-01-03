@@ -31,7 +31,13 @@ My configuration files: Vim, Bash, tmux
 - Install packages
 
 ```sh
-brew install git bash macvim tmux node
+brew install git bash macvim tmux node -y
+```
+
+- Change default shell to upgraded bash
+
+```sh
+chsh -s /usr/local/bin/bash
 ```
 
 - Install vim-plug

@@ -1,4 +1,5 @@
 #!/bin/bash
+SCRIPT_DIR=$(dirname "$0")
 SHELL_CONFIGS=(".inputrc")
 SHELL_CONFIGS+=(".bash_aliases")
 SHELL_CONFIGS+=(".bash_functions")
@@ -17,12 +18,12 @@ if [[ "$OSTYPE" == "linux"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     SHELL_CONFIGS+=(".bash_profile")
-    VIM_CONFIGS+=(".xvimrc")
+    bash $SCRIPT_DIR/"Xcode/install.sh"
+    #VIM_CONFIGS+=(".xvimrc")
 
 else
     # Unknown OS
-    echo  "$OSTYPE" 'not supported'
-    echo "dotfiles were not installed"
+    echo  "$OSTYPE" 'is not supported. dotfiles were not installed'
     exit 1
 fi
 
@@ -32,7 +33,7 @@ do
     if [[ -e ~/"$f" ]] || [[ -L ~/"$f" ]]; then
         rm -v -i ~/"$f"
     fi
-    ln -s $(pwd)/"$f" ~/"$f"
+    ln -s $SCRIPT_DIR/"$f" ~/"$f"
 done
 
 # remove existing coc-settings and link to dotfiles repo
@@ -40,12 +41,11 @@ if [[ -e ~/"$COC_CONFIG" ]] || [[ -L ~/"$COC_CONFIG" ]] ; then
     rm -v -i ~/"$COC_CONFIG"
 fi
 
-ln -s $(pwd)/"$COC_CONFIG" ~/"$COC_CONFIG"
+ln -s $SCRIPT_DIR/"$COC_CONFIG" ~/"$COC_CONFIG"
 
 echo 'Installing Vim Plugins...'
 
 vim -E -c PlugClean -c qa
 vim -E -c PlugInstall -c qa
 
-echo 'Done!'
-echo 'Close and restart shell for changes to take effect'
+echo 'Done! Close and restart shell for changes to take effect'

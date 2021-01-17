@@ -7,6 +7,6 @@ export LS_COLORS
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval "$($HOME'/Anaconda3/Scripts/conda.exe' 'shell.bash' 'hook')"
+eval "$($HOME'/Miniconda3/Scripts/conda.exe' 'shell.bash' 'hook')"
 # <<< conda initialize <<<
 

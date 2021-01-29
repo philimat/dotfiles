@@ -1,5 +1,5 @@
-#!/bin/bash
-SCRIPT_DIR=$(dirname "$0")
+#!/usr/bin/env bash
+SCRIPT_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 SHELL_CONFIGS=(".inputrc")
 SHELL_CONFIGS+=(".bash_aliases")
 SHELL_CONFIGS+=(".bash_functions")
@@ -30,18 +30,11 @@ fi
 # remove home directory config files and link to dotfiles repo
 for f in ${SHELL_CONFIGS[@]} ${VIM_CONFIGS[@]} $TMUX_CONFIG $GIT_CONFIG $CONDA_CONFIG;
 do
-    if [[ -e ~/"$f" ]] || [[ -L ~/"$f" ]]; then
-        rm -v -i ~/"$f"
-    fi
-    ln -s $SCRIPT_DIR/"$f" ~/"$f"
+    ln -sfiv $SCRIPT_DIR/"$f" ~/"$f"
 done
 
-# remove existing coc-settings and link to dotfiles repo
-if [[ -e ~/"$COC_CONFIG" ]] || [[ -L ~/"$COC_CONFIG" ]] ; then
-    rm -v -i ~/"$COC_CONFIG"
-fi
-
-ln -s $SCRIPT_DIR/"$COC_CONFIG" ~/"$COC_CONFIG"
+# remove coc-settings and link to dotfiles repo
+ln -sfiv $SCRIPT_DIR/"$COC_CONFIG" ~/"$COC_CONFIG"
 
 echo 'Installing Vim Plugins...'
 

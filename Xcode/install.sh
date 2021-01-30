@@ -18,4 +18,9 @@ fi
 
 echo "Linking Xcode preferences..."
 ln -sfv $SCRIPT_DIR/com.apple.dt.Xcode.plist ~/Library/Preferences/
+
+echo "Changing Xcode default color theme to Gruvbox"
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentDarkTheme -string "Gruvbox Dark (Hack Nerd Font 14).xccolortheme"
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string "Gruvbox Light (Hack Nerd Font 14).xccolortheme"
+
 echo 'Xcode config files succesfully installed!'

@@ -1,7 +1,7 @@
 
 # dotfiles
 
-My configuration files: Vim, Bash, tmux
+My configuration files for Vim, Git, Bash, and Tmux on various operating systems. Colorschemes, Xcode customizations, and instructions on swapping Esc and Caps Lock for a better Vim experience are also included.
 
 ## **macOS**  
 

@@ -11,20 +11,31 @@ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\e[35m\]\$
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# Default editor
+DEFAULT_EDITOR=nvim
+PLUGIN_DIR=$HOME
+
+# Editor plugins locations
+if [ $DEFAULT_EDITOR=='vim' ]; then
+    PLUGIN_DIR="$PLUGIN_DIR/.vim/plugged/"
+elif [ $DEFAULT_EDITOR=='nvim' ]; then
+    PLUGIN_DIR="$PLUGIN_DIR/.config/nvim/plugged/"
+fi
+
 # Use vim
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=$DEFAULT_EDITOR
+export VISUAL=$DEFAULT_EDITOR
 
 # Check whether shell is interactive for colorscheme
 case $- in
-    *i*) source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh" ;;
+    *i*) source "$PLUGIN_DIR/gruvbox/gruvbox_256palette.sh" ;;
 esac
 
 # Directory for personal scripts and programs
 export PATH="$PATH:$HOME/bin"
 
 # Use Vim for enhanced reading of man pages
-export PATH="$PATH:$HOME/.vim/plugged/vim-superman/bin"
+export PATH="$PATH:$PLUGIN_DIR/vim-superman/bin"
 complete -o default -o nospace -F _man vman
 
 # don't put duplicate lines or lines starting with space in the history.

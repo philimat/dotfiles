@@ -12,7 +12,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Default editor
-DEFAULT_EDITOR=nvim
+DEFAULT_EDITOR=vim
 PLUGIN_DIR=$HOME
 
 # Editor plugins locations

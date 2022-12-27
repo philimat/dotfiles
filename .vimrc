@@ -6,7 +6,7 @@
 " Plugins
 " -----------------------------------------------------------------------------
 
-call plug#begin()
+call plug#begin(has('nvim') ? '~/.config/nvim/plugged' : '~/.vim/plugged')
 
 " Conquer of Completion plugin for intellisense features
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

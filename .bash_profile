@@ -16,10 +16,10 @@ DEFAULT_EDITOR=nvim
 PLUGIN_DIR=$HOME
 
 # Editor plugins locations
-if [ $DEFAULT_EDITOR=='vim' ]; then
-    PLUGIN_DIR="$PLUGIN_DIR/.vim/plugged/"
-elif [ $DEFAULT_EDITOR=='nvim' ]; then
-    PLUGIN_DIR="$PLUGIN_DIR/.config/nvim/plugged/"
+if [ $DEFAULT_EDITOR == 'vim' ]; then
+    PLUGIN_DIR="$PLUGIN_DIR/.vim/plugged"
+elif [ $DEFAULT_EDITOR == 'nvim' ]; then
+    PLUGIN_DIR="$PLUGIN_DIR/.config/nvim/plugged"
 fi
 
 # Use vim
@@ -71,4 +71,3 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
